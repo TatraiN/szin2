@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="main.css" rel="stylesheet" />
+</head>
+<body>
+    <p><input id="szin" type="text" placeholder="Add meg a színt" /></p>
+    <p><input id="kultura" type="text" placeholder="Add meg melyik kultúrához kapcsolódik" /></p>
+    <p><input id="jelentes" type="text" placeholder="Add meg a szín jelentését" /></p>
+    <p><input id="pozitiv" type="checkbox" placeholder="Pozitív az általad megadott szín?" /></p>
+    <p><button id="ujszin">Rögzít</button></p>
+    <p><button id="muta">Mutasd a színeket</button></p>
+    <h1>Színek</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>SzínID</th>
+                <th>Szín</th>
+                <th>Kultúra</th>
+                <th>Jelentése</th>
+                <th>Pozitív?</th>
+            </tr>
+        </thead>
+        <tbody id="tb_szinek">
+        </tbody>
+    </table>
+    <script>
+        document.getElementById("ujszin").addEventListener("click", _ => {
+            var szinData =
+            {
+                "color": document.getElementById("szin").value,
+                "culture": document.getElementById("kultura").value,
+                "meaning": document.getElementById("jelentes").value,
+                "isPositive": document.getElementById("pozitiv").checked == "Ok"
+            }
+
+            fetch("api/color", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(szinData)
+            }).then(v => v.json()).then(o => {
+                console.log("POST:", o);
+            })
+
+        });
+
+        document.getElementById("muta").addEventListener("click", _ => {
+            fetch("api/color").then(v => v.json()).then(o => {
+                let tbody = document.getElementById("tb_szinek");
+                tbody.innerHTML = "";
+                console.log(o);
+
+                var tábla = document.getElementById("tb_szinek");
+
+                for (var i = 0; i < o.length; i++) {
+                    var sor = document.createElement("tr");
+                    sor.innerHTML = `
+                                                    <td>${o[i].colorId}</td>
+                                                    <td>${o[i].color}</td>
+                                                    <td>${o[i].culture}</td>
+                                                    <td>${o[i].meaning}</td>
+                                                    <td>${o[i].isPositive}</td>
+                                                    `;
+                    tábla.appendChild(sor);
+                }
+            })
+
+        })
+
+        //o.forEach(e => {
+        //    let tr = document.createElement("tr");
+        //    tr.innerHTML = `
+        //    <td>${e.colorid}</td>
+        //    <td>${e.color}</td>
+        //    <td>${e.culture}</td>
+        //    <td>${e.meaning}</td>
+        //    <td>${e.isPositive}</td>
+        //    `;
+        //    tbody.appendChild(tr);
+        //});
+    </script>
+</body>
+</html>
+

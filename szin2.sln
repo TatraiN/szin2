@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "szin2", "szin2\szin2.csproj", "{9D7E948E-B792-4B5A-AA99-EA9E365C474C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsAppColor", "WinFormsAppColor\WinFormsAppColor.csproj", "{80D92D5F-1374-44C0-B131-6E83E11B617B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9D7E948E-B792-4B5A-AA99-EA9E365C474C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D7E948E-B792-4B5A-AA99-EA9E365C474C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D7E948E-B792-4B5A-AA99-EA9E365C474C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D7E948E-B792-4B5A-AA99-EA9E365C474C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80D92D5F-1374-44C0-B131-6E83E11B617B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80D92D5F-1374-44C0-B131-6E83E11B617B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80D92D5F-1374-44C0-B131-6E83E11B617B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80D92D5F-1374-44C0-B131-6E83E11B617B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
